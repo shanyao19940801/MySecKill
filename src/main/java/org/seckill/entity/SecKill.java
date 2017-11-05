@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class SecKill {
     private long seckillId;
-    private String naem;
+    private String name;
     private int number;
     private Date startTime;
     private Date endTime;
@@ -21,12 +21,12 @@ public class SecKill {
         this.seckillId = seckillId;
     }
 
-    public String getNaem() {
-        return naem;
+    public String getName() {
+        return name;
     }
 
-    public void setNaem(String naem) {
-        this.naem = naem;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getNumber() {
@@ -65,7 +65,7 @@ public class SecKill {
     public String toString() {
         return "SecKill{" +
                 "seckillId=" + seckillId +
-                ", naem='" + naem + '\'' +
+                ", name='" + name + '\'' +
                 ", number=" + number +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +
