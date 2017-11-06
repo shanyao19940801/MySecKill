@@ -13,6 +13,9 @@ import org.seckill.exception.SeckillClosedException;
 import org.seckill.service.ISecKillService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
 import java.util.Date;
@@ -21,19 +24,23 @@ import java.util.List;
 /**
  * Created by 单耀 on 2017/11/5.
  */
+@Service
 public class SecKillServiceImpl implements ISecKillService{
+
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
 
+    @Autowired
     private SecKillDao secKillDao;
 
+    @Autowired
     private SuccessKilledDao successKilledDao;
 
     //用于混淆md5
     private final String slat = "werqwr23afd^&$^(saf";
 
     public List<SecKill> getSeckillList() {
-        return secKillDao.queryAll(0, 4);
+        return secKillDao.queryAll(0, 100);
     }
 
     public SecKill getById(long seckillId) {
@@ -60,6 +67,8 @@ public class SecKillServiceImpl implements ISecKillService{
         String md5 = DigestUtils.md5DigestAsHex(base.getBytes());
         return md5;
     }
+
+    @Transactional
     public SeckillExecution executeSeckill(long seckillId, long userPhone, String md5) throws SecKillException, RepeatKillException, SeckillClosedException {
         if(md5 == null || !md5.equals(getMD5(seckillId))){
 
