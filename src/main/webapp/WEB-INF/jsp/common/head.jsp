@@ -1,10 +1,10 @@
-<%  
+<%--<%
     String path = request.getContextPath();  
     String basePath = request.getScheme() + "://"  
             + request.getServerName() + ":" + request.getServerPort()  
             + path + "/";  
     pageContext.setAttribute("basePath",basePath);    
-%>
+%>--%>
 
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
