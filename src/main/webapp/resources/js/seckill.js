@@ -69,6 +69,7 @@ var seckill = {
 	},
 	// 倒计时
 	countdown : function(seckillId, nowTime, startTime, endTime) {
+		console.log(nowTime);
 		// 时间判断
 		var seckillBox = $('#seckillBox');
 		if (nowTime > endTime) {
